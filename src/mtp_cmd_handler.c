@@ -602,6 +602,16 @@ static void __send_object_info(mtp_handler_t *hdlr)
 
 	h_parent = _hdlr_get_param_cmd_container(&(hdlr->usb_cmd), 1);
 
+	#ifdef MTP_SUPPORT_READ_AND_DELETE_ACCESS_ONLY
+		/* Don't allow creating a new file*/
+		resp = PTP_RESPONSE_PARAM_NOTSUPPORTED;
+		if (g_device->phase != DEVICE_PHASE_NOTREADY)
+			_cmd_hdlr_send_response_code(hdlr, resp);
+
+		return;
+	#endif
+
+
 	if (_hdlr_get_param_cmd_container(&(hdlr->usb_cmd), 2)) {
 		resp = PTP_RESPONSE_PARAM_NOTSUPPORTED;
 		if (g_device->phase != DEVICE_PHASE_NOTREADY)

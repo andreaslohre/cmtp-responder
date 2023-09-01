@@ -24,6 +24,10 @@
 /* Set write-protection for read-only files */
 /*#define MTP_SUPPORT_SET_PROTECTION*/
 
+
+#define MTP_SUPPORT_READ_AND_DELETE_ACCESS_ONLY
+
+
 #define MTP_USE_RUNTIME_GETOBJECTPROPVALUE	/*use runtime get object property list*/
 /* Support Features */
 
@@ -49,7 +53,7 @@
 
 #define MTP_BUF_SIZE_FOR_INT		11      /* 2^32 - 1 = 4294967295 (10 digits) */
 
-#define MTP_STORAGE_DESC_EXT		"Card Storage"
+#define MTP_STORAGE_DESC_EXT		"User Recordings"
 
 /* about 976kbytes for object property value like sample data*/
 #define MTP_MAX_PROP_DATASIZE          1000000
@@ -82,7 +86,7 @@
 #define MTP_VENDOR_EXTENSIONDESC_CHAR	\
 	"microsoft.com:1.0;android.com:1.0; "
 
-#define MTP_MANUFACTURER_CHAR		"Collabora"
+#define MTP_MANUFACTURER_CHAR		"Nomono"
 
 #define MTP_MMAP_THRESHOLD	524288
 #define MTP_READ_USB_SIZE	4096
